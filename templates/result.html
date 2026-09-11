@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="card">
+    <h1>Prediction Result</h1>
+    <p class="result-label">{{ result }}</p>
+    <p class="subtitle">Confidence: {{ confidence }}% &middot; Model: {{ algo }}</p>
+    <a class="button-link" href="{{ url_for('home') }}">&larr; Try another image</a>
+  </div>
+</body>
+</html>

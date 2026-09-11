@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cotton Leaf Disease Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="card">
+    <h1>🌱 Cotton Leaf Disease Detection</h1>
+    <p class="subtitle">Upload a photo of a cotton leaf or plant to check its condition.</p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+      <label for="file">Image</label>
+      <input type="file" name="file" id="file" accept="image/*" required>
+
+      <label for="algo">Model</label>
+      <select name="algo" id="algo">
+        <option value="cnn">CNN</option>
+        <option value="vgg16">VGG16</option>
+      </select>
+
+      <button type="submit">Predict</button>
+    </form>
+  </div>
+</body>
+</html>
